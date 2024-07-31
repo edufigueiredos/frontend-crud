@@ -25,6 +25,11 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/app/theme/colors"
+              ]
+            },
             "assets": [
               {
                 "glob": "**/*",
@@ -98,5 +103,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "48bcf06e-22c6-40b0-9ccc-9951af44110c"
   }
 }
