@@ -1,0 +1,14 @@
+@import "colors";
+
+.app-component {
+  display: flex;
+  flex-direction: column;
+
+  &__main {
+    margin: 24px;
+    padding: 16px;
+    background-color: $gray-1;
+
+    border-radius: 16px;
+  }
+}

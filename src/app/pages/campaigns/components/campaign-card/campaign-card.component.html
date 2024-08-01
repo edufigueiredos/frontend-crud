@@ -1,0 +1,16 @@
+<section class="card-component">
+  <div class="card-component__image-container">
+    <img [src]="campaign()?.imageUrl" [alt]="'Imagem da campanha: ' + campaign()?.title">
+  </div>
+
+  <div class="card-component__info">
+    <h2>{{ campaign()?.title }}</h2>
+    <span><span class="normal-text">Criando em: </span>{{ campaign()?.createdAt | date: 'dd/MM/yyyy' }}</span>
+    <p>{{ campaign()?.description }}</p>
+  </div>
+
+  <div class="card-component__action-buttons">
+    <mat-icon>edit</mat-icon>
+    <mat-icon (click)="deleteCampaignById()">delete</mat-icon>
+  </div>
+</section>

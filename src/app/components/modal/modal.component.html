@@ -1,0 +1,9 @@
+@if (open()) {
+  <section class="modal-component">
+    <div class="modal-component__overlay">
+      <div class="modal-component__overlay__content" [class.warning]="type() === 'warning'">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </section>
+}

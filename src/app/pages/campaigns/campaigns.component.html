@@ -1,0 +1,18 @@
+<section class="campaigns-component">
+  <div class="campaigns-component__filter-container inside-container">
+    <app-campaigns-filter (textFilter)="filterByText($event)" (dateSelected)="filterByDate($event)" (sortBy)="sortBy($event)"/>
+  </div>
+  <div class="campaigns-component__cards inside-container">
+    @for (item of campaignsList(); track item.id) {
+      <app-campaign-card [campaign]="item" (deleteCampaign)="confirmCampaignDeletion($event)" />
+    }
+  </div>
+
+  <button mat-mini-fab class="campaigns-component__add-button">
+    <mat-icon>add</mat-icon>
+  </button>
+</section>
+
+<app-modal [(open)]="deleteCampaignWarning" type="warning">
+  Tem certeza que deseja apagar a campanha {{ campaignToDelete()?.title }}?
+</app-modal>

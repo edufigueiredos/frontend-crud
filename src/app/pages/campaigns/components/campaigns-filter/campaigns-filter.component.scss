@@ -1,0 +1,10 @@
+.filter-components {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__first-column {
+    display: flex;
+    gap: 16px;
+  }
+}

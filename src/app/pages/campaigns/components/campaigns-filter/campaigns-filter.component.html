@@ -1,0 +1,37 @@
+<section class="filter-components">
+  <div class="filter-components__first-column">
+    <mat-form-field appearance="outline" color="primary">
+      <mat-label>Data inicial e final</mat-label>
+      <mat-date-range-input [formGroup]="dateForm" [rangePicker]="picker">
+        <input matStartDate formControlName="startDate" placeholder="Inicio">
+        <input matEndDate formControlName="endDate" placeholder="Fim">
+      </mat-date-range-input>
+      <mat-hint>DD/MM/YYYY – DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker" />
+      <mat-date-range-picker #picker />
+
+      @if (dateForm.controls.startDate.hasError('matStartDateInvalid')) {
+        <mat-error>Data inicial incorreta</mat-error>
+      }
+      @if (dateForm.controls.endDate.hasError('matEndDateInvalid')) {
+        <mat-error>Data final incorreta</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Escolha a ordenação</mat-label>
+      <mat-select [formControl]="sortByControl">
+        @for(item of orderBy; track item) {
+          <mat-option [value]="item">{{ item.label }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="filter-components__last-column">
+    <mat-form-field appearance="outline">
+      <mat-label>Pesquise aqui</mat-label>
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput type="text" [formControl]="searchControl">
+    </mat-form-field>
+  </div>
+</section>
