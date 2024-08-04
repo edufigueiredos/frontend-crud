@@ -14,6 +14,16 @@
   <button mat-mini-fab class="campaigns-component__add-button" (click)="openCreateOrEditModal()">
     <mat-icon>add</mat-icon>
   </button>
+
+  <mat-paginator #paginator
+                 (page)="handlePageEvent($event)"
+                 [length]="pagination.length"
+                 [pageSize]="pagination.pageSize"
+                 [showFirstLastButtons]="true"
+                 [pageSizeOptions]="pagination.pageSizeOptions"
+                 [pageIndex]="pagination.pageIndex"
+                 aria-label="Select page">
+  </mat-paginator>
 </section>
 
 <app-modal [(open)]="createOrEditCampaignModal" type="auto" [title]="campaignToEdit() ? 'Editar' : 'Cadastrar'">

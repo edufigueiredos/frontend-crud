@@ -7,7 +7,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {debounceTime, distinctUntilChanged, map, startWith} from "rxjs";
 
-import {DateRangeFormModel, DateRangeModel} from "../../../../models/date-range-form.model";
+import {DateRangeFormModel, DateRangeModel} from "../../../../models/campaigns/date-range-form.model";
 import {MatIconModule} from "@angular/material/icon";
 import {CampaignSort} from "../../../../models/campaigns/campaign";
 import {MatSelectModule} from "@angular/material/select";
@@ -67,7 +67,7 @@ export class CampaignsFilterComponent implements OnInit {
         takeUntilDestroyed(this._destroyRef),
         debounceTime(500)
       )
-      .subscribe(value => {
+      .subscribe(_ => {
         if (this.dateForm.controls.startDate && this.dateForm.controls.endDate) {
           this.dateSelected.emit(this.dateForm.value as DateRangeModel)
         } else {
