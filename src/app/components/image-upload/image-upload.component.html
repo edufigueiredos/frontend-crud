@@ -1,0 +1,31 @@
+<section class="image-upload-container">
+  <div class="image-upload-container__content">
+    @if (croppedImage) {
+      <img [src]="croppedImage" alt="Foto selecionada"/>
+    } @else {
+      <span>Selecione sua foto aqui</span>
+    }
+    <input type="file" #inputElement accept="image/*" (change)="fileChangeEvent($event)">
+  </div>
+</section>
+
+<app-modal [(open)]="isCropModalOpen" type="auto" title="Cortar foto">
+  <div class="crop-imagem-container">
+    <div class="crop-imagem-container__crop">
+      <image-cropper
+        [imageChangedEvent]="imageChangedEvent"
+        [maintainAspectRatio]="true"
+        [aspectRatio]="1"
+        format="png"
+        (imageCropped)="imageCropped($event)"
+        (imageLoaded)="imageLoaded()"
+        (cropperReady)="cropperReady()"
+        (loadImageFailed)="loadImageFailed()"
+      ></image-cropper>
+    </div>
+    <div class="crop-imagem-container__buttons">
+      <button mat-stroked-button (click)="cancelCrop()">Cancelar</button>
+      <button mat-flat-button (click)="closeCropModal()">Confirmar</button>
+    </div>
+  </div>
+</app-modal>

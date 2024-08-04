@@ -22,3 +22,34 @@
     right: 36px;
   }
 }
+
+.create-edit-form {
+  display: flex;
+  flex-direction: column;
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+    &__buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+}
+
+.delete-confirm-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+  }
+}

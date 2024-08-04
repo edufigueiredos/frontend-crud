@@ -10,7 +10,7 @@
   </div>
 
   <div class="card-component__action-buttons">
-    <mat-icon>edit</mat-icon>
-    <mat-icon (click)="deleteCampaignById()">delete</mat-icon>
+    <mat-icon (click)="editCampaignEmitter(campaign())">edit</mat-icon>
+    <mat-icon (click)="deleteCampaignEmitter()">delete</mat-icon>
   </div>
 </section>

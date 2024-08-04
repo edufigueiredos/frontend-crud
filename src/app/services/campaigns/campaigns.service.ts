@@ -1,7 +1,7 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Campaign, CampaignFilter, CampaignParams} from "../../models/campaigns/campaign";
+import {Campaign, CampaignParams} from "../../models/campaigns/campaign";
 import {environment} from "../../../environments/environment";
 
 @Injectable({
@@ -32,6 +32,14 @@ export class CampaignsService {
     }
 
     return this._http.get<Array<Campaign>>(`${this._baseUrl}/campaigns`, {params});
+  }
+
+  public saveCampaign(campaign: Campaign): Observable<Campaign> {
+    return this._http.post<Campaign>(`${this._baseUrl}/campaigns`, campaign);
+  }
+
+  public editCampaign(campaign: Campaign): Observable<Campaign> {
+    return this._http.patch<Campaign>(`${this._baseUrl}/campaigns/${campaign.id}`, campaign);
   }
 
   public deleteCampaign(id: string): Observable<void> {

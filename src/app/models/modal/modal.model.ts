@@ -1,1 +1,1 @@
-export type ModalType = 'modal' | 'warning'
+export type ModalType = 'modal' | 'auto'

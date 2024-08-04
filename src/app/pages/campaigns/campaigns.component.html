@@ -4,15 +4,51 @@
   </div>
   <div class="campaigns-component__cards inside-container">
     @for (item of campaignsList(); track item.id) {
-      <app-campaign-card [campaign]="item" (deleteCampaign)="confirmCampaignDeletion($event)" />
+      <app-campaign-card
+        [campaign]="item"
+        (deleteCampaign)="confirmCampaignDeletion($event)"
+        (editCampaign)="setToEditCampaign($event)" />
     }
   </div>
 
-  <button mat-mini-fab class="campaigns-component__add-button">
+  <button mat-mini-fab class="campaigns-component__add-button" (click)="openCreateOrEditModal()">
     <mat-icon>add</mat-icon>
   </button>
 </section>
 
-<app-modal [(open)]="deleteCampaignWarning" type="warning">
-  Tem certeza que deseja apagar a campanha {{ campaignToDelete()?.title }}?
+<app-modal [(open)]="createOrEditCampaignModal" type="auto" [title]="campaignToEdit() ? 'Editar' : 'Cadastrar'">
+  <form class="create-edit-form" [formGroup]="campaignForm">
+    <input type="hidden" formControlName="id">
+
+    <div class="create-edit-form__image">
+      <app-image-upload formControlName="imageUrl" />
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Título</mat-label>
+      <input matInput type="text" formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <div class="create-edit-form__buttons">
+      <button mat-stroked-button (click)="closeCreateOrEditModal()">Cancelar</button>
+      <button mat-flat-button [disabled]="campaignForm.invalid" (click)="campaignToEdit() ? editCampaign() : registerCampaign()">
+        {{ campaignToEdit() ? 'Editar' : 'Cadastrar' }}
+      </button>
+    </div>
+  </form>
+</app-modal>
+
+<app-modal [(open)]="deleteCampaignWarningModal" type="auto" title="Apagar campanha">
+  <div class="delete-confirm-modal">
+    <span>Tem certeza que deseja remover o item: <strong>{{ campaignToDelete()?.title }}</strong>?</span>
+    <div class="delete-confirm-modal__buttons">
+      <button mat-stroked-button color="primary" (click)="closeDeleteConfirmationModal()">Cancelar</button>
+      <button mat-flat-button color="warn" (click)="deleteCampaign(campaignToDelete()?.id)">Confirmar</button>
+    </div>
+  </div>
 </app-modal>

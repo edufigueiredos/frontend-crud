@@ -1,7 +1,10 @@
 @if (open()) {
   <section class="modal-component">
     <div class="modal-component__overlay">
-      <div class="modal-component__overlay__content" [class.warning]="type() === 'warning'">
+      <div class="modal-component__overlay__content" [class.warning]="type() === 'auto'">
+        @if(title()) {
+          <h1 class="modal-component__overlay__content__title">{{ title() }}</h1>
+        }
         <ng-content></ng-content>
       </div>
     </div>

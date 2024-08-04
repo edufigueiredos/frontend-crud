@@ -10,6 +10,7 @@ import {ModalType} from "../../models/modal/modal.model";
 })
 export class ModalComponent {
   open = model(false);
+  title = input<string>();
   type = input<ModalType>('modal');
 
   @HostListener('click', ['$event']) closeOnClick(event: PointerEvent): void {

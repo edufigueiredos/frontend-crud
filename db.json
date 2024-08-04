@@ -29,20 +29,6 @@
       "imageUrl": "https://random.imagecdn.app/200/200"
     },
     {
-      "id": "6",
-      "title": "Oficinas de Artesanato",
-      "description": "Workshops gratuitos de artesanato para a comunidade.",
-      "createdAt": "2024-07-20T00:00:00Z",
-      "imageUrl": "https://random.imagecdn.app/200/200"
-    },
-    {
-      "id": "7",
-      "title": "Campanha de Doação de Sangue",
-      "description": "Coleta de sangue para aumentar os estoques dos bancos de sangue.",
-      "createdAt": "2024-07-24T00:00:00Z",
-      "imageUrl": "https://random.imagecdn.app/200/200"
-    },
-    {
       "id": "9",
       "title": "Programa de Educação Ambiental",
       "description": "Projeto para educar jovens sobre a importância da preservação ambiental.",
@@ -68,20 +54,6 @@
       "title": "Aula de Yoga ao Ar Livre",
       "description": "Sessões de yoga gratuitas em parques da cidade.",
       "createdAt": "2024-07-18T00:00:00Z",
-      "imageUrl": "https://random.imagecdn.app/200/200"
-    },
-    {
-      "id": "13",
-      "title": "Palestra sobre Sustentabilidade",
-      "description": "Palestra educativa sobre práticas sustentáveis no dia a dia.",
-      "createdAt": "2024-07-22T00:00:00Z",
-      "imageUrl": "https://random.imagecdn.app/200/200"
-    },
-    {
-      "id": "14",
-      "title": "Exposição de Arte Local",
-      "description": "Evento para divulgar o trabalho de artistas locais.",
-      "createdAt": "2024-07-26T00:00:00Z",
       "imageUrl": "https://random.imagecdn.app/200/200"
     }
   ]
